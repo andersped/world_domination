@@ -1,0 +1,26 @@
+<h1 class="page-header"><font color=#000080>SUPERHERO LIST</font></h1>
+
+<%= link_to "Add a New Superhero", new_superhero_path, class:"btn btn-info" %>
+<div class="row">
+  <% @superheroes.each do |superhero| %>
+    <div class="col-sm-6 col-md-4" style="height:436.667px;">
+      <div class="thumbnail">
+        <div class="caption">
+          <div><h3><%= link_to "#{superhero.name}", superhero_path(superhero) %></h3>
+          </div>
+          <div>
+          	<b>Height:</b>
+          	<%= superhero.height %>
+          </div>
+          <div>
+          	<b>Bio:</b>
+          	<%= superhero.bio %>
+          </div>
+          <div>
+          	<%= image_tag(superhero.image_url, class:"thumbnail", height:"150") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

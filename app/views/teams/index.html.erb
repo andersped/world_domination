@@ -1,0 +1,18 @@
+<h1 class="page-header"><font color=#000080>SUPERHERO TEAM LIST</font></h1>
+
+<%= link_to "Add a New Team", new_team_path, class:"btn btn-info" %>
+<div class="row">
+  <% @teams.each do |team| %>
+    <div class="col-sm-6 col-md-4" style="height:436.667px;">
+      <div class="thumbnail">
+        <div class="caption">
+          <div><h3><%= link_to "#{team.name}", team_path(team) %></h3>
+          </div>
+          <div>
+          	<%= team.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

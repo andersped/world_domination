@@ -1,0 +1,27 @@
+<h1><%= "#{@superhero.name}" %></h1>
+<p><%=@superhero.bio %></p>
+<p><%=@superhero.bio %></p>
+<p><%= image_tag(@superhero.image_url, class:"thumbnail", height:"150") %></p>
+
+<div class="row">
+<div>
+  	<%= link_to "Edit #{@superhero.name}", edit_superhero_path(@superhero), class:"btn btn-default" %>
+    <%= link_to "Delete #{@superhero.name}", @superhero, method: :delete, data:{alert:"are you sure?"} ,class:"btn btn-primary" %>
+  </div>
+  <% @superhero_teams.each_with_index do |team, i| %>
+  <% if i + 1 < @superhero_teams.length %>
+    <div class="col-sm-6 col-md-4" style="height:436.667px;">
+      <div class="thumbnail">
+        <div class="caption">
+          <div>
+          	<h3><%= team.name %></h3>
+          	<div>
+          		<b>Description:</b> <%= team.description %>
+          	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
